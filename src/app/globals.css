@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", var(--font-geist-sans), sans-serif;
+  --color-foreground: #ffffff;
+  --color-background: #09090b;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Watercolor background base */
+.watercolor-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: #050505;
+  overflow: hidden;
+}
+
+/* Fluid, overlapping animated gradient blobs */
+.watercolor-blob {
+  position: absolute;
+  filter: blur(120px);
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out alternate;
+  opacity: 0.3;
+}
+
+.blob-1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, rgba(236, 72, 153, 0) 70%);
+  top: -10vw;
+  left: -10vw;
+  animation-duration: 25s;
+}
+
+.blob-2 {
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0) 70%);
+  bottom: -20vw;
+  right: -10vw;
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
+  top: 40%;
+  left: 20%;
+  animation-duration: 28s;
+  animation-delay: -10s;
+}
+
+.blob-4 {
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(168, 85, 247, 0) 70%);
+  top: -20%;
+  right: -20%;
+  animation-duration: 30s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(5vw, 10vh) scale(1.1) rotate(15deg);
+  }
+
+  66% {
+    transform: translate(-5vw, 5vh) scale(0.9) rotate(-15deg);
+  }
+
+  100% {
+    transform: translate(2vw, -5vh) scale(1) rotate(5deg);
+  }
+}
+
+.glass-panel {
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+}
+
+.glass-button {
+  background: rgba(30, 30, 35, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  color: #fff;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f472b6 0%, #c084fc 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
