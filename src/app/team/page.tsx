@@ -32,7 +32,7 @@ export default function TeamPage() {
             for (const member of teamMembers) {
                 if (!member.discordId) continue;
                 try {
-                    const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                    const apiUrl = "/api-proxy";
                     const res = await fetch(`${apiUrl}/api/user/${member.discordId}`);
                     if (res.ok) {
                         const data = await res.json();

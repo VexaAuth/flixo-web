@@ -19,7 +19,7 @@ export default function Home() {
       } catch (e) { }
 
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+        const apiUrl = "/api-proxy";
         const statsRes = await fetch(`${apiUrl}/api/stats`);
         if (statsRes.ok) {
           const data = await statsRes.json();

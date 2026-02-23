@@ -13,7 +13,7 @@ export default function CommandsPage() {
     useEffect(() => {
         async function fetchCommands() {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                const apiUrl = "/api-proxy";
                 const res = await fetch(`${apiUrl}/api/commands`);
                 if (res.ok) {
                     const data = await res.json();

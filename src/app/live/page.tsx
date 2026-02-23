@@ -20,12 +20,12 @@ export default function LiveMusicPage() {
         setPlayer(null);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+            const apiUrl = "/api-proxy";
             let res = await fetch(`${apiUrl}/api/player/${query}`);
             let data = await res.json();
 
             if (!data.isConnected && !data.isPlaying) {
-                const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                const apiUrl = "/api-proxy";
                 res = await fetch(`${apiUrl}/api/user-player/${query}`);
                 data = await res.json();
             }
@@ -46,7 +46,7 @@ export default function LiveMusicPage() {
     useEffect(() => {
         async function fetchGlobalStats() {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                const apiUrl = "/api-proxy";
                 const res = await fetch(`${apiUrl}/api/music-stats`);
                 if (res.ok) setGlobalStats(await res.json());
             } catch (e) { }
@@ -59,7 +59,7 @@ export default function LiveMusicPage() {
 
             if (player) {
                 try {
-                    const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                    const apiUrl = "/api-proxy";
                     const res = await fetch(`${apiUrl}/api/player/${player.guildId || query}`);
                     const data = await res.json();
                     if (data.isConnected || data.isPlaying || data.currentTrack) {

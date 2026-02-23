@@ -11,7 +11,7 @@ export default function StatusPage() {
     useEffect(() => {
         async function fetchStats() {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL;
+                const apiUrl = "/api-proxy";
                 const res = await fetch(`${apiUrl}/api/stats`);
                 if (res.ok) {
                     setStats(await res.json());
