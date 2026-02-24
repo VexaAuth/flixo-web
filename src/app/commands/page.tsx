@@ -8,6 +8,7 @@ export default function CommandsPage() {
     const [commands, setCommands] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
+    const [activeCategory, setActiveCategory] = useState("all");
     const [copiedCmd, setCopiedCmd] = useState<string | null>(null);
 
     useEffect(() => {
@@ -28,10 +29,13 @@ export default function CommandsPage() {
         fetchCommands();
     }, []);
 
-    const filteredCommands = commands.filter((c) =>
-        c.name.toLowerCase().includes(search.toLowerCase()) ||
-        c.description?.toLowerCase().includes(search.toLowerCase())
-    );
+    const categories = ["all", ...Array.from(new Set(commands.map((c) => c.category || "misc"))).sort()];
+
+    const filteredCommands = commands.filter((c) => {
+        const matchesSearch = c.name.toLowerCase().includes(search.toLowerCase()) || c.description?.toLowerCase().includes(search.toLowerCase());
+        const matchesCategory = activeCategory === "all" || (c.category || "misc") === activeCategory;
+        return matchesSearch && matchesCategory;
+    });
 
     const handleCopy = (cmdName: string) => {
         navigator.clipboard.writeText(`/${cmdName}`);
@@ -103,7 +107,7 @@ export default function CommandsPage() {
 
                     <div className="p-6 md:p-8">
                         {/* Interactive Search Bar */}
-                        <div className="relative mb-10 group max-w-3xl mx-auto">
+                        <div className="relative mb-6 group max-w-3xl mx-auto">
                             <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
                                 <Search className="w-5 h-5 text-cyan-500/50 group-focus-within:text-cyan-400 transition-colors" />
                             </div>
@@ -119,6 +123,22 @@ export default function CommandsPage() {
                                     <Command className="w-3 h-3" /> K
                                 </kbd>
                             </div>
+                        </div>
+
+                        {/* Category Selector */}
+                        <div className="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-4xl mx-auto">
+                            {categories.map((cat) => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`px-4 py-2 rounded-full text-sm font-bold capitalize transition-all duration-300 ${activeCategory === cat
+                                            ? "bg-gradient-to-r from-cyan-500 to-sky-600 text-white shadow-lg shadow-cyan-500/25 border border-cyan-400/50"
+                                            : "bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
+                                        }`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
                         </div>
 
                         {/* Commands Grid Area */}

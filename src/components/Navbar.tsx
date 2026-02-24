@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Server, List, ShieldCheck, AudioLines, Zap } from "lucide-react";
-import { motion } from "framer-motion";
+import { Server, List, ShieldCheck, AudioLines, Zap, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
     const path = usePathname();
     const [botMeta, setBotMeta] = useState<{ username?: string; avatarUrl?: string | null }>({});
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         async function loadMeta() {
@@ -87,21 +88,96 @@ export function Navbar() {
                     })}
                 </div>
 
-                {/* Invite Button */}
-                <Link
-                    href="https://discord.com/api/oauth2/authorize?client_id=1380994881731952741&permissions=8&scope=bot%20applications.commands"
-                    target="_blank"
-                >
-                    <button className="relative group px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 text-white bg-white/5 border border-white/10 hover:bg-cyan-500/20 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 overflow-hidden">
-                        {/* Button Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-sky-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                        <Zap className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-                        <span className="hidden sm:inline">Add to Discord</span>
-                        <span className="sm:hidden">Invite</span>
-                    </button>
-                </Link>
+                {/* Desktop Buttons */}
+                <div className="flex items-center gap-2">
+                    <Link
+                        href="https://discord.com/api/oauth2/authorize?client_id=1380994881731952741&permissions=8&scope=bot%20applications.commands"
+                        target="_blank"
+                    >
+                        <button className="hidden md:flex relative group px-6 py-2.5 rounded-full font-bold text-sm items-center gap-2 text-white bg-white/5 border border-white/10 hover:bg-cyan-500/20 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 overflow-hidden">
+                            {/* Button Glow Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-sky-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                            <Zap className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+                            <span>Add to Discord</span>
+                        </button>
+                    </Link>
 
+                    {/* Mobile Menu Toggle Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(true)}
+                        className="md:hidden flex items-center justify-center p-2 rounded-full text-white hover:bg-white/10 transition-colors pointer-events-auto"
+                    >
+                        <Menu className="w-6 h-6" />
+                    </button>
+                </div>
             </nav>
+
+            {/* Mobile Sidebar Navigation */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 pointer-events-auto md:hidden"
+                        />
+
+                        {/* Sidebar */}
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed top-0 right-0 bottom-0 w-64 bg-black/90 border-l border-white/10 shadow-2xl p-6 z-50 pointer-events-auto md:hidden overflow-y-auto"
+                        >
+                            <div className="flex items-center justify-between mb-8">
+                                <span className="text-xl font-black text-white px-2">Menu</span>
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
+                                >
+                                    <X className="w-5 h-5 text-gray-400 hover:text-white" />
+                                </button>
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                {navLinks.map((link) => {
+                                    const isActive = path === link.href;
+                                    return (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-bold transition-all ${isActive
+                                                    ? "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400"
+                                                    : "bg-white/5 border border-white/5 text-gray-300 hover:bg-white/10 hover:text-white"
+                                                }`}
+                                        >
+                                            {link.icon}
+                                            {link.label}
+                                        </Link>
+                                    );
+                                })}
+
+                                <div className="mt-4 pt-4 border-t border-white/10">
+                                    <Link
+                                        href="https://discord.com/api/oauth2/authorize?client_id=1380994881731952741&permissions=8&scope=bot%20applications.commands"
+                                        target="_blank"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-sky-600 hover:shadow-lg hover:shadow-cyan-500/20 transition-all"
+                                    >
+                                        <Zap className="w-4 h-4" />
+                                        Add to Discord
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

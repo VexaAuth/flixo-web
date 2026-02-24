@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Activity, Server, Clock, Music, CheckCircle2, AlertCircle, Cpu, Wifi } from "lucide-react";
 
 export default function StatusPage() {
+    const compactNumber = (num: number) => {
+        return Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(num || 0);
+    };
     const [stats, setStats] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
@@ -145,7 +148,7 @@ export default function StatusPage() {
                                         <Server className="w-5 h-5 text-teal-400" />
                                         <p className="text-gray-400 text-sm font-bold uppercase tracking-wider">Networks</p>
                                     </div>
-                                    <p className="text-3xl font-black text-white font-mono">{stats.servers?.toLocaleString()}</p>
+                                    <p className="text-3xl font-black text-white font-mono">{compactNumber(stats.servers)}</p>
                                 </div>
 
                                 <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 group">
@@ -153,7 +156,7 @@ export default function StatusPage() {
                                         <Music className="w-5 h-5 text-indigo-400" />
                                         <p className="text-gray-400 text-sm font-bold uppercase tracking-wider">Active Streams</p>
                                     </div>
-                                    <p className="text-3xl font-black text-white font-mono">{stats.players?.toLocaleString()}</p>
+                                    <p className="text-3xl font-black text-white font-mono">{compactNumber(stats.players)}</p>
                                 </div>
                             </motion.div>
 
@@ -165,33 +168,33 @@ export default function StatusPage() {
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {/* Mocked Shard Block */}
-                                    <div className="bg-black/40 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 transition-colors">
-                                        <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-                                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                                Shard <span className="text-cyan-400">#0</span>
-                                            </h3>
-                                            <div className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 rounded-full text-xs font-bold text-cyan-400 uppercase tracking-wide border border-cyan-500/20">
-                                                <CheckCircle2 className="w-3 h-3" /> Online
+                                    {(stats.shards || [{ id: 0, ping: stats.ping, servers: stats.servers, users: stats.users, status: 0 }]).map((shard: any) => (
+                                        <div key={shard.id} className="bg-black/40 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 transition-colors">
+                                            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
+                                                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                                    Shard <span className="text-cyan-400">#{shard.id ?? 0}</span>
+                                                </h3>
+                                                <div className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 rounded-full text-xs font-bold text-cyan-400 uppercase tracking-wide border border-cyan-500/20">
+                                                    <CheckCircle2 className="w-3 h-3" /> {shard.status === 0 ? "Online" : shard.status === 1 ? "Connecting" : "Offline"}
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div className="space-y-4 text-sm font-medium">
-                                            <div className="flex justify-between items-center group">
-                                                <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Heartbeat</span>
-                                                <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{stats.ping}ms</span>
-                                            </div>
-                                            <div className="flex justify-between items-center group">
-                                                <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Cached Guilds</span>
-                                                <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{stats.servers?.toLocaleString()}</span>
-                                            </div>
-                                            <div className="flex justify-between items-center group">
-                                                <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Total Users</span>
-                                                <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{stats.users?.toLocaleString()}</span>
+                                            <div className="space-y-4 text-sm font-medium">
+                                                <div className="flex justify-between items-center group">
+                                                    <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Heartbeat</span>
+                                                    <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{shard.ping ?? 0}ms</span>
+                                                </div>
+                                                <div className="flex justify-between items-center group">
+                                                    <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Cached Guilds</span>
+                                                    <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{compactNumber(shard.servers)}</span>
+                                                </div>
+                                                <div className="flex justify-between items-center group">
+                                                    <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Total Users</span>
+                                                    <span className="text-white font-mono bg-white/5 px-2 py-1 rounded-md">{compactNumber(shard.users)}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {/* Future expansion: Map through actual shards here */}
+                                    ))}
                                 </div>
                             </motion.div>
 
