@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
     try {
-        const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL || "http://top.visonhost.cloud:2004";
+        const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL || "top.visonhost.cloud:2004";
         const res = await fetch(`${apiUrl}/api/bot-info`, {
             next: { revalidate: 60 } // Cache for 60 seconds
         });
