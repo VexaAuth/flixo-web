@@ -2,9 +2,9 @@
 
 ""Website" (https://img.shields.io/badge/Website-flixobot.in-black?style=for-the-badge)" (https://flixobot.in)
 ""Support" (https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord)" (https://discord.gg/Zx6C6VN5Rk)
-""Node" (https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)"
-""Next.js" (https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)"
-""TypeScript" (https://img.shields.io/badge/TypeScript-Language-blue?style=for-the-badge&logo=typescript)"
+"Node" (https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)
+"Next.js" (https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)
+"TypeScript" (https://img.shields.io/badge/TypeScript-Language-blue?style=for-the-badge&logo=typescript)
 
 </div>---
 
@@ -12,9 +12,7 @@
 
 Flixo is a modern music platform designed to deliver high-quality audio streaming with stable performance and smooth playback.
 
-The system is built with scalability and speed in mind, ensuring reliable service for communities and users.
-
-Flixo focuses on performance, simplicity, and modern web architecture.
+Built with scalability and performance in mind.
 
 ---
 
@@ -23,10 +21,10 @@ Flixo focuses on performance, simplicity, and modern web architecture.
 🎵 High quality audio streaming
 ⚡ Fast response system
 🔊 Smooth playback engine
-🧠 Optimized backend infrastructure
+🧠 Optimized backend
 🖥 Modern frontend architecture
 🛠 Developer friendly structure
-🚀 Scalable system design
+🚀 Scalable infrastructure
 
 ---
 
@@ -47,21 +45,6 @@ Lavalink
 
 ---
 
-📂 Project Structure
-
-public/
-src/
-.gitignore
-README.md
-eslint.config.mjs
-next.config.ts
-package.json
-package-lock.json
-postcss.config.mjs
-tsconfig.json
-
----
-
 🌐 Links
 
 Website
@@ -70,23 +53,10 @@ https://flixobot.in
 Support Server
 https://discord.gg/Zx6C6VN5Rk
 
-Developer GitHub
+Developer
 https://github.com/realnobita
 
 ---
-
-👨‍💻 Developer
-
-Maintained by Nobita
-
-GitHub
-https://github.com/realnobita
-
----
-
-⭐ Support
-
-If you like this project, consider giving it a star on GitHub to support development.
 
 <div align="center">⭐ Star the repository if you like the project ⭐
 
