@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:111111,100:000000&height=200&section=header&text=Flixo&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=High%20Performance%20Music%20Platform&descAlignY=60&descAlign=50"/></div><div align="center">Smooth playback • Reliable performance • Modern infrastructure
 
-## Getting Started
+""Website" (https://img.shields.io/badge/Website-flixobot.in-black?style=for-the-badge)" (https://flixobot.in)
+""Support" (https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord)" (https://discord.gg/Zx6C6VN5Rk)
+""Node" (https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)"
+""Next.js" (https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)"
+""TypeScript" (https://img.shields.io/badge/TypeScript-Language-blue?style=for-the-badge&logo=typescript)"
 
-First, run the development server:
+</div>---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🚀 About Flixo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Flixo is a modern music platform designed to deliver high-quality audio streaming with stable performance and smooth playback.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The system is built with scalability and speed in mind, ensuring reliable service for communities and users.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Flixo focuses on performance, simplicity, and modern web architecture.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+✨ Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎵 High quality audio streaming
+⚡ Fast response system
+🔊 Smooth playback engine
+🧠 Optimized backend infrastructure
+🖥 Modern frontend architecture
+🛠 Developer friendly structure
+🚀 Scalable system design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+🛠 Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js
+TypeScript
+TailwindCSS
+PostCSS
+
+Backend / Services
+
+Node.js
+Discord API
+Lavalink
+
+---
+
+📂 Project Structure
+
+public/
+src/
+.gitignore
+README.md
+eslint.config.mjs
+next.config.ts
+package.json
+package-lock.json
+postcss.config.mjs
+tsconfig.json
+
+---
+
+🌐 Links
+
+Website
+https://flixobot.in
+
+Support Server
+https://discord.gg/Zx6C6VN5Rk
+
+Developer GitHub
+https://github.com/realnobita
+
+---
+
+👨‍💻 Developer
+
+Maintained by Nobita
+
+GitHub
+https://github.com/realnobita
+
+---
+
+⭐ Support
+
+If you like this project, consider giving it a star on GitHub to support development.
+
+<div align="center">⭐ Star the repository if you like the project ⭐
+
+</div><div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:111111&height=120&section=footer"/></div>
