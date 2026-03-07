@@ -1,63 +1,47 @@
-<div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:111111,100:000000&height=200&section=header&text=Flixo&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=High%20Performance%20Music%20Platform&descAlignY=60&descAlign=50"/></div><div align="center">Smooth playback • Reliable performance • Modern infrastructure
+# Flixo-Web 🚀
 
-""Website" (https://img.shields.io/badge/Website-flixobot.in-black?style=for-the-badge)" (https://flixobot.in)
-""Support" (https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord)" (https://discord.gg/Zx6C6VN5Rk)
-"Node" (https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)
-"Next.js" (https://img.shields.io/badge/Next.js-Framework-black?style=for-the-badge&logo=next.js)
-"TypeScript" (https://img.shields.io/badge/TypeScript-Language-blue?style=for-the-badge&logo=typescript)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-</div>---
+## 📜 Description
 
-🚀 About Flixo
+Flixobot is an innovative bot designed to help users with various tasks in a user-friendly manner. It leverages the power of modern technology to simplify workflows and enhance productivity.
 
-Flixo is a modern music platform designed to deliver high-quality audio streaming with stable performance and smooth playback.
+## 📦 Features
 
-Built with scalability and performance in mind.
+- **Automated Tasks**: Reduce manual work with automation.
+- **User-Friendly Interface**: Easy to interact with and set up.
+- **Supports Multiple Integrations**: Works with popular APIs and other services.
 
----
+## 🔧 Usage
 
-✨ Features
+Here's how to use Flixo-Web:
 
-🎵 High quality audio streaming
-⚡ Fast response system
-🔊 Smooth playback engine
-🧠 Optimized backend
-🖥 Modern frontend architecture
-🛠 Developer friendly structure
-🚀 Scalable infrastructure
+```javascript
+const Flixo = require('flixo-Web');
 
----
+const bot = new Flixo();
+bot.start();
+```
 
-🛠 Tech Stack
+## 🤝 Contributing
 
-Frontend
+Contributions are welcome! Please follow these steps:
 
-Next.js
-TypeScript
-TailwindCSS
-PostCSS
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
 
-Backend / Services
+## 📄 License
 
-Node.js
-Discord API
-Lavalink
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+## 📬 Contact
 
-🌐 Links
+For inquiries, please reach out to [realnobita](mailto:realnobita.xyz@gmail.com).
 
-Website
-https://flixobot.in
+## 🌟 Acknowledgments
 
-Support Server
-https://discord.gg/Zx6C6VN5Rk
-
-Developer
-https://github.com/realnobita
-
----
-
-<div align="center">⭐ Star the repository if you like the project ⭐
-
-</div><div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:111111&height=120&section=footer"/></div>
+- Thanks to all contributors, maintainers, and the open-source community!
