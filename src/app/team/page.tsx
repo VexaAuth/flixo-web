@@ -7,17 +7,17 @@ import Link from "next/link";
 
 const teamMembers = [
     {
-        name: "! 𓆩Ɱr.𓆪 ⚘₊ζ͜͡N O B I T A",
-        role: "Bot Owner",
+        name: "Nobita",
+        role: "Developer",
         description: "Visionary creator and primary owner of the Flixo platform core.",
         discordId: "1380026050104397825",
-        github: "https://github.com/",
+        github: "https://github.com/realnobita",
         discord: "https://discord.gg/Zx6C6VN5Rk",
     },
     {
-        name: "ANsh4Real",
-        role: "Co Dev and Co Ownz",
-        description: "Co-Developer and infrastructure co-owner behind Flixo's high-performance backend.",
+        name: "Ansh",
+        role: "Co Dev",
+        description: "Co-Developer and infrastructure co-owner behind Flixo's high-performance backend management.",
         discordId: "1383706658315960330",
         github: "https://github.com/",
         discord: "https://discord.gg/Zx6C6VN5Rk",
